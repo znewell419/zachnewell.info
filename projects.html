@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects | Zachary</title>
+<meta name="description" content="IT projects by Zachary Newell, including a self-hosted Arch Linux server, this Caddy-powered portfolio site, and hands-on Active Directory and Entra administration work.">
+<meta property="og:title" content="IT Projects | Zachary Newell">
+<meta property="og:description" content="Server builds, infrastructure work, and hands-on systems administration projects.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zachnewell.info/projects">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="projects.html" class="active">Projects</a>
+  <a href="resume.html">Resume</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<header>
+  <h1>IT <span>Projects</span></h1>
+  <p class="subtitle">Server builds, infrastructure, and hands-on systems work</p>
+</header>
+
+<main>
+  <section>
+    <div class="card featured">
+      <span class="featured-label">Featured Project</span>
+      <h3>This Site: Self-Hosted Portfolio</h3>
+      <p>
+        Built and deployed from scratch on a self-hosted Arch Linux server, running
+        Caddy as the web server. This project covers everything from server
+        maintenance to real production troubleshooting, not just writing HTML.
+      </p>
+      <ul>
+        <li>Deployed and configured Caddy with a hardened systemd service, including diagnosing a ProtectSystem sandboxing issue that was silently blocking file reads outside of allowed paths</li>
+        <li>Resolved a pacman keyring corruption issue causing mass PGP signature failures across unrelated packages</li>
+        <li>Fixed a file ownership conflict after an upstream package split (linux-firmware-nvidia), including safely removing and rebuilding conflicting files</li>
+        <li>Corrected a broken mkinitcpio hook (plymouth) that was preventing a clean boot image from being generated after a kernel upgrade</li>
+        <li>Diagnosed a Caddyfile address syntax bug (http:80 vs the correct :80) that caused the server to return empty 200 responses instead of serving content</li>
+        <li>Deployed content end to end using SSH and SCP from a Windows workstation to the Linux server</li>
+      </ul>
+      <p style="margin-bottom: 0;">
+        <a class="card-link" href="https://zachnewell.info" target="_blank" rel="noopener noreferrer">Visit the live site &rarr;</a>
+      </p>
+      <div style="margin-top: 16px;">
+        <span class="tag">Caddy</span>
+        <span class="tag">Arch Linux</span>
+        <span class="tag">systemd</span>
+        <span class="tag">Web Hosting</span>
+        <span class="tag">Troubleshooting</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Production-Style Monitoring Stack</h3>
+      <p>
+        Deployed Grafana, Prometheus, Node Exporter, and cAdvisor on the homelab server
+        to track bare metal stats and container health, alongside Uptime Kuma for
+        heartbeat monitoring of both the site and the server itself. Both Grafana
+        and Uptime Kuma stay locked down behind Cloudflare Zero Trust.
+      </p>
+      <p>
+        Hit and resolved an HTTPS redirect loop caused by Cloudflare and Caddy both
+        trying to terminate HTTPS at the same time. Fixed by setting the Caddy server
+        block to plain HTTP and letting Cloudflare handle HTTPS termination at the edge.
+      </p>
+      <span class="tag">Grafana</span>
+      <span class="tag">Prometheus</span>
+      <span class="tag">Uptime Kuma</span>
+      <span class="tag">cAdvisor</span>
+      <span class="tag">Node Exporter</span>
+    </div>
+
+    <div class="card">
+      <h3>Cloudflare Tunnel &amp; Reverse Proxy</h3>
+      <p>
+        Routed the portfolio site, Grafana, and Uptime Kuma through Cloudflare Tunnel
+        and Caddy, so no public IP address or ports are ever exposed to the internet.
+        Configured Cloudflare Zero Trust to restrict Grafana and Uptime Kuma access
+        to a single authorized account, keeping both locked down from public access.
+      </p>
+      <span class="tag">Cloudflare Tunnel</span>
+      <span class="tag">Zero Trust</span>
+      <span class="tag">Caddy</span>
+      <span class="tag">Reverse Proxy</span>
+    </div>
+
+    <div class="card">
+      <h3>Dockerized Service Stack</h3>
+      <p>
+        Containerized the full monitoring stack (Uptime Kuma, Prometheus, Grafana,
+        cAdvisor, and Node Exporter) using Docker Compose for a repeatable, version
+        controlled deployment. All services run alongside each other on the same
+        PowerEdge host, managed as a single stack instead of individual manual
+        installs.
+      </p>
+      <span class="tag">Docker</span>
+      <span class="tag">Docker Compose</span>
+      <span class="tag">Containerization</span>
+    </div>
+
+    <div class="card">
+      <h3>Arch Linux Home Server</h3>
+      <p>
+        Self-hosted server running Arch Linux on a Dell PowerEdge with hardware RAID
+        (Avago/LSI MegaRAID controller). Handles ongoing system updates, package
+        management, and ongoing maintenance for the infrastructure behind this site
+        and other self-hosted services.
+      </p>
+      <p>
+        Fixed a Docker networking issue after a kernel update broke the veth virtual
+        interface module, which was preventing containers from reaching the network.
+      </p>
+      <span class="tag">Arch Linux</span>
+      <span class="tag">Hardware RAID</span>
+      <span class="tag">System Administration</span>
+    </div>
+
+    <div class="card">
+      <h3>Active Directory &amp; Entra Administration</h3>
+      <p>
+        Hands-on management of user accounts, group policy, and hybrid identity
+        between on-prem Active Directory and Entra ID, gained through MSP field
+        engineering supporting multiple small business clients.
+      </p>
+      <span class="tag">Active Directory</span>
+      <span class="tag">Entra ID</span>
+      <span class="tag">Identity Management</span>
+    </div>
+
+    <div class="card">
+      <h3>MSP Field Support &amp; Provisioning</h3>
+      <p>
+        Provisioned and deployed workstations, diagnosed and repaired hardware, and
+        provided on-site network troubleshooting across a range of small business
+        environments as a field engineer.
+      </p>
+      <span class="tag">Provisioning</span>
+      <span class="tag">Hardware</span>
+      <span class="tag">Networking</span>
+    </div>
+  </section>
+</main>
+
+<footer>
+  &copy; 2026 Zachary. Built with Caddy.
+</footer>
+
+</body>
+</html>
