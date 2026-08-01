@@ -17,7 +17,7 @@ The website is built as a lightweight static site and is self-hosted on my own L
 - Projects showcase
 - Resume download
 - Contact page
-- Search engine optimization files (robots.txt and sitemap.xml)
+- Search engine optimization files (`robots.txt` and `sitemap.xml`)
 - Self-hosted deployment
 
 ## Technologies Used
@@ -32,17 +32,24 @@ The website is built as a lightweight static site and is self-hosted on my own L
 
 ## Repository Structure
 
+```text
 .
 ├── assets/
 │   ├── css/
+│   │   └── style.css
 │   └── images/
+│       └── zachary-newell.jpeg
 ├── downloads/
-│   └── resume PDF
-├── index.html
+│   └── Zachary-Newell-Resume-2026-2-pages.pdf
 ├── about.html
+├── contact.html
+├── favicon.svg
+├── index.html
 ├── projects.html
 ├── resume.html
-└── contact.html
+├── robots.txt
+└── sitemap.xml
+```
 
 ## Deployment
 
@@ -61,6 +68,11 @@ Deployment workflow:
 - Add blog functionality
 - Add analytics
 - Continue improving accessibility
+- Expand project documentation
+
+## Related Projects
+
+- Linux Server Infrastructure — documentation for the self-hosted Linux server, Docker services, monitoring stack, and system administration work supporting this website.
 
 ## Author
 
