@@ -72,7 +72,7 @@ Deployment workflow:
 
 ## Related Projects
 
-- Linux Server Infrastructure — documentation for the self-hosted Linux server, Docker services, monitoring stack, and system administration work supporting this website.
+- [Linux Server Infrastructure](https://github.com/znewell419/linux-server-infrastructure) — documentation for the self-hosted Linux server, Docker services, monitoring stack, security configuration, and system administration work supporting this website.
 
 ## Author
 
