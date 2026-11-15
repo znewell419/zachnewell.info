@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Projects | Zachary</title>
-<meta name="description" content="IT projects by Zachary Newell, including a self-hosted Arch Linux server, this Caddy-powered portfolio site, and hands-on Active Directory and Entra administration work.">
-<meta property="og:title" content="IT Projects | Zachary Newell">
-<meta property="og:description" content="Server builds, infrastructure work, and hands-on systems administration projects.">
+<title>Homelab | Zachary</title>
+<meta name="description" content="Zachary Newell's homelab: a self-hosted Arch Linux server, this Caddy-powered site, and hands-on infrastructure work he still tinkers with on the side.">
+<meta property="og:title" content="Homelab | Zachary Newell">
+<meta property="og:description" content="Server builds and infrastructure work, kept up as a hobby while earning a Class A CDL.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://zachnewell.info/projects">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -16,22 +16,23 @@
 
 <nav>
   <a href="index.html">Home</a>
+  <a href="trucking.html">Trucking</a>
   <a href="about.html">About</a>
-  <a href="projects.html" class="active">Projects</a>
+  <a href="projects.html" class="active">Homelab</a>
   <a href="resume.html">Resume</a>
   <a href="contact.html">Contact</a>
 </nav>
 
 <header>
-  <h1>IT <span>Projects</span></h1>
-  <p class="subtitle">Server builds, infrastructure, and hands-on systems work</p>
+  <h1>The <span>Homelab</span></h1>
+  <p class="subtitle">What I tinker with when I am not on the road</p>
 </header>
 
 <main>
   <section>
     <div class="card featured">
       <span class="featured-label">Featured Project</span>
-      <h3>This Site: Self-Hosted Portfolio</h3>
+      <h3>This Site: Self-Hosted</h3>
       <p>
         Built and deployed from scratch on a self-hosted Arch Linux server, running
         Caddy as the web server. This project covers everything from server
@@ -60,6 +61,38 @@
     </div>
 
     <div class="card">
+      <h3>Ansible Server Automation</h3>
+      <p>
+        Built an Ansible-based configuration management system for the headless Arch
+        Linux home server, running from a WSL2 Ubuntu control node and managing the
+        server over SSH. Replaces repetitive manual administration with repeatable,
+        idempotent infrastructure as code covering server configuration, package
+        management, systemd service management, Docker, web server configuration,
+        and security hardening.
+      </p>
+      <p>
+        Automated SSH hardening (key-only authentication, disabled root login,
+        restricted forwarding) and built a dedicated Fail2ban role with an nftables
+        ban action, systemd backend, and a templated jail configuration. Separate
+        roles handle base server setup, package verification, service management,
+        Docker, and the web server stack that hosts this site, with configuration
+        driven by variables and Jinja2 templates rather than hardcoded files.
+      </p>
+      <p>
+        Traced an intermittent "Module invocation had junk after the JSON data"
+        warning to systemd's OSC 3008 terminal-context output leaking into SSH
+        sessions and contaminating Ansible's JSON output, then adjusted the shell
+        configuration to resolve it.
+      </p>
+      <span class="tag">Ansible</span>
+      <span class="tag">Infrastructure as Code</span>
+      <span class="tag">YAML</span>
+      <span class="tag">Jinja2</span>
+      <span class="tag">Fail2ban</span>
+      <span class="tag">nftables</span>
+    </div>
+
+    <div class="card">
       <h3>Production-Style Monitoring Stack</h3>
       <p>
         Deployed Grafana, Prometheus, Node Exporter, and cAdvisor on the homelab server
@@ -82,7 +115,7 @@
     <div class="card">
       <h3>Cloudflare Tunnel &amp; Reverse Proxy</h3>
       <p>
-        Routed the portfolio site, Grafana, and Uptime Kuma through Cloudflare Tunnel
+        Routed this site, Grafana, and Uptime Kuma through Cloudflare Tunnel
         and Caddy, so no public IP address or ports are ever exposed to the internet.
         Configured Cloudflare Zero Trust to restrict Grafana and Uptime Kuma access
         to a single authorized account, keeping both locked down from public access.

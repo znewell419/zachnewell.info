@@ -156,6 +156,30 @@ p { color: var(--text-dim); margin-bottom: 12px; }
   font-size: 0.9rem;
 }
 .card-link:hover { text-decoration: underline; }
+
+/* Photo gallery */
+.photo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.photo-grid figure { margin: 0; text-align: center; }
+.photo-grid img {
+  max-height: 420px;
+  width: auto;
+  max-width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  display: inline-block;
+}
+.photo-grid figcaption {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  margin-top: 8px;
+}
+@media (max-width: 640px) {
+  .photo-grid { grid-template-columns: 1fr; }
+}
 .resume-block { text-align: center; }
 .timeline-item {
   border-left: 2px solid var(--border);
